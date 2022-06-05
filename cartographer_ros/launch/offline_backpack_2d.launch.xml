@@ -15,10 +15,10 @@
 -->
 
 <launch>
-  <arg name="no_rviz" default="false"/>
+  <arg name="use_rviz" default="true"/>
   <param name="/use_sim_time" value="true" />
 
-  <group unless="$(arg no_rviz)">
+  <group if="$(arg use_rviz)">
     <node name="rviz" pkg="rviz" type="rviz" required="true"
         args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
 
